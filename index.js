@@ -9,13 +9,15 @@ const blogsRouter = require("./controllers/blogs")
 const userRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorRouter = require('./controllers/authors')
+const readingListRouter = require('./controllers/readingList')
 
 app.use(express.json())
 
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', userRouter)
-app.use('/api/login', loginRouter)
+app.use('/api', loginRouter)
 app.use('/api/authors', authorRouter)
+app.use('/api/readinglists', readingListRouter)
 
 const errorHandler = (error, req, res, next) => {
     console.log(error.message)
